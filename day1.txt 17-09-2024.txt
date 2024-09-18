@@ -1,0 +1,66 @@
+1. HomeBrew
+
+What is it: It is a package manager which lets people to install free and open source s/w using terminal. We can use it installing developer tool node.js , ruby etc.
+
+Homebrew installation-
+1.install Xcode CLI - it is an IDE comprise of s/w dev tools for macOs
+command- Xcode-select --install
+
+installing and setup brew-
+Curl - uses to download the homebrew installation
+Flags-
+1. -f/--fail: tells terminal to to give no html doc o/p on server error.
+2.-s/—silent: mutes curl so that it will not show progress meter
+3.-S/—show-error: ensure curl to show error msg if it fails
+4.-L/—location: handle redirects
+5.-o : saves the content into file you specify.
+
+Commands:
+1.less —> it is for reviewing the installing setup
+2.doctor —> is for updation of the package with current version
+3.which —>used for searching the directory of the package
+
+2. Vs Code 
+
+What is it: It is a smart code editor with light weight functionality with great support in development techs.
+Vs Code installation 
+plugins to be install:
+    1. prettier - for better code formatting.
+    2. gitlens - for git history
+    3. Js debugger - for debugging
+    4. Eslint - for code style enforcement
+
+3. Docker 
+
+What is it: It is a software paltform to built and deploy applications quickly. 
+            Basically, it creates packages of s/w into standardization units called containers-> it had everything to run and develop the application like libraries, toole,etc.
+            It is an OS for containers.
+
+Working of Docker - It is having an Docker Enginge where there are communication 
+                    between Client and server through rest APIs where client runs a command translated using Rest API and sent to docker.
+
+4. Shell
+
+What it is: The shell is a command-line interface that allows you to interact with your operating system.
+Why it's important: Many development tasks like running scripts, version control, and managing packages happen in the terminal.
+How to set it up:
+        Mac users: By default, the shell is bash. We will install zsh for a more modern experience.
+
+5. Node Version Manager (NVM)
+
+What it is: A version manager for Node.js that allows you to easily install and switch between different versions of Node.js.
+Why it's important: Projects often require different Node.js versions, and NVM simplifies managing these versions.
+Installation and setup:
+    bash
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+
+    Usage:
+        Install Node: nvm install <version>
+        Switch between versions: nvm use <version>.
+
+
+
+
+
+
+
