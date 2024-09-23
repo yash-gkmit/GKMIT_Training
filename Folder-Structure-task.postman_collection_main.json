@@ -1,0 +1,447 @@
+{
+	"info": {
+		"_postman_id": "7b3072e5-fafb-4ec6-808d-d6ce6776ae5a",
+		"name": "Folder-Structure-task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38476530",
+		"_collection_link": "https://skitpiet.postman.co/workspace/SKIT_PIET-Workspace~1bf363e7-615f-4382-8006-28d5fbc868db/collection/38476530-7b3072e5-fafb-4ec6-808d-d6ce6776ae5a?action=share&source=collection_link&creator=38476530"
+	},
+	"item": [
+		{
+			"name": "countries",
+			"item": [
+				{
+					"name": "states",
+					"item": [
+						{
+							"name": "cities",
+							"item": [
+								{
+									"name": "List of all cities of state",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BASE_URL}}states/:stateid/cities",
+											"host": [
+												"{{BASE_URL}}states"
+											],
+											"path": [
+												":stateid",
+												"cities"
+											],
+											"variable": [
+												{
+													"key": "stateid",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "name of single city",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BASE_URL}}states/:stateid/cities/:cityid",
+											"host": [
+												"{{BASE_URL}}states"
+											],
+											"path": [
+												":stateid",
+												"cities",
+												":cityid"
+											],
+											"variable": [
+												{
+													"key": "stateid",
+													"value": ""
+												},
+												{
+													"key": "cityid",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create city",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\":\"udaipur\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}states/:stateid/cities",
+											"host": [
+												"{{BASE_URL}}states"
+											],
+											"path": [
+												":stateid",
+												"cities"
+											],
+											"variable": [
+												{
+													"key": "stateid",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update city",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\":\"alwar\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}states/:stateid/cities/:cityid",
+											"host": [
+												"{{BASE_URL}}states"
+											],
+											"path": [
+												":stateid",
+												"cities",
+												":cityid"
+											],
+											"variable": [
+												{
+													"key": "stateid",
+													"value": ""
+												},
+												{
+													"key": "cityid",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete city",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{BASE_URL}}states/:stateid/cities/:cityid",
+											"host": [
+												"{{BASE_URL}}states"
+											],
+											"path": [
+												":stateid",
+												"cities",
+												":cityid"
+											],
+											"variable": [
+												{
+													"key": "stateid",
+													"value": ""
+												},
+												{
+													"key": "cityid",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "List of all states",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}countries/:countryid/states",
+									"host": [
+										"{{BASE_URL}}countries"
+									],
+									"path": [
+										":countryid",
+										"states"
+									],
+									"variable": [
+										{
+											"key": "countryid",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create new state",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"rajasthan\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}countries/:countryid/states",
+									"host": [
+										"{{BASE_URL}}countries"
+									],
+									"path": [
+										":countryid",
+										"states"
+									],
+									"variable": [
+										{
+											"key": "countryid",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update state all details",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Delhi\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}countries/:countryid/states/:stateid",
+									"host": [
+										"{{BASE_URL}}countries"
+									],
+									"path": [
+										":countryid",
+										"states",
+										":stateid"
+									],
+									"variable": [
+										{
+											"key": "countryid",
+											"value": ""
+										},
+										{
+											"key": "stateid",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete state",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}countries/:countryid/states/:stateid",
+									"host": [
+										"{{BASE_URL}}countries"
+									],
+									"path": [
+										":countryid",
+										"states",
+										":stateid"
+									],
+									"variable": [
+										{
+											"key": "countryid",
+											"value": ""
+										},
+										{
+											"key": "stateid",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "List of all countries",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}countries",
+							"host": [
+								"{{BASE_URL}}countries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get single country name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}countries/:id",
+							"host": [
+								"{{BASE_URL}}countries"
+							],
+							"path": [
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Country",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"India\",\n    \"state\": \"rajasthan\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}countries",
+							"host": [
+								"{{BASE_URL}}countries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update country",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"uk\",\n    \"state\": \"england\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}countries/:id",
+							"host": [
+								"{{BASE_URL}}countries"
+							],
+							"path": [
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete country",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}countries/:id",
+							"host": [
+								"{{BASE_URL}}countries"
+							],
+							"path": [
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "htp://localhost:8080/",
+			"type": "string"
+		}
+	]
+}
