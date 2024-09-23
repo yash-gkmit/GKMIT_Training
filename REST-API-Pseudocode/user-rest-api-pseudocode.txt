@@ -1,0 +1,93 @@
+url-> localhost:5000/posts
+Method -> post
+body :-
+{
+	"name": "yash",
+	"id": 1
+}
+response :-
+{
+	"id":1
+} 
+status code -> 201 created
+
+url-> localhost:5000/users
+Method -> GET
+response :-[
+{
+	"name": "yash",
+	"id": 1
+},
+{
+	"name": "aman",
+	"id": 2
+}
+]
+status code -> 200 OK
+
+url-> localhost:5000/users/:id
+Method -> GET
+response :-[
+{
+	"name": "yash",
+	"id": 1
+}
+]
+status code -> 200 OK
+               if not - 404 NOT FOUND
+
+
+url-> localhost:5000/users/:id
+Method -> PUT
+body :- {
+	"name" : 
+}
+response :-[
+{
+	"name": "yash",
+	"id": 1
+}
+]
+status code -> 200 OK
+               if not - 404 NOT FOUND
+
+url-> localhost:5000/users/:id
+Method -> PATCH
+body :- {
+	"name" : "you have to update"
+}
+response :-[
+{
+	"name": "updated",
+	"id": 1
+}
+]
+status code -> 200 OK
+               if not - 404 NOT FOUND
+
+url-> localhost:5000/users/:id
+Method -> PATCH
+body :- {
+	"name" : "you have to update"
+}
+response :-[
+{
+	"name": "updated",
+	"id": 1
+}
+]
+status code -> 200 OK
+               if not - 404 NOT FOUND
+
+OPTIONS -> OPTIONS *<target-url>?query
+*url -> it is asking for checking/accessing the accepotable request for whole server.
+Access-control-allow-method
+status code: 200 OK
+
+HEAD -> HEAD /users/resources<targetr-url>?query
+use to request the resource of the header without fetching the body.
+similar to get but especially used for metadata.
+status code: 200 OK
+
+CONNECT - proxy request
+status code: 200 OK

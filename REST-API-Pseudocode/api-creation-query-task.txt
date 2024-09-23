@@ -1,0 +1,1 @@
+localhost:5000/users/:id/posts/?created_at=20-09-2024T05:00:00&ended_at=20-09-2024T09:45:39
