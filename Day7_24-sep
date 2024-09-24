@@ -1,0 +1,34 @@
+Summary-
+
+Authorization types in postman
+
+1.Basic auth
+2.Bearer tokens
+3.JWT 
+4. OAuth 1.0 and OAuth 2.0
+5. API Key
+
+Request headers
+
+1.Content-type
+2.Authorization
+3.Host
+4.User-Agent
+
+Response headers
+
+1.Content-type
+2.Status code
+3.X-Powered-By
+4.X-Ratelimit-Limit
+5.X-Ratelimit-Remaining
+6.API rate limiting
+7.Cors         
+
+
+TODO-
+
+1.Base 64 encoding and decoding
+2.Cookie based authentication
+3.Session based authentication
+
