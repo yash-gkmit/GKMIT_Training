@@ -1,0 +1,29 @@
+Rest : What is Rest?
+       Why to use?
+	   CRUD Operations
+
+Types of http method: 
+GET
+POST
+PUT
+PATCH
+DELETE
+HEAD
+OPTION
+
+
+Difference between PUT and PATCH ?
+How to make HTTP endpoints?
+When to use different type of HTTP Methods?
+Creation of User Routes (End Points)
+Slight discussion about  Query and Params
+Doubts Session
+
+Task to be done:
+1. Learn the Other 2 methods of HTTP method {OPTION ,HEAD}
+2. Learn STATUS CODE 
+3. Create CRUD Routes for USER and Post(example : Facebook post)
+    And filter the Posts on the basis of the range of start date and end date .
+4. Read  ROR  for MVC Architecture , Lean Controller , Fat Model  – {OPTIONAL} 
+5. VS code Uninstall by Eod
+6. Postman Install by Eod and Explore the workings of Postman.

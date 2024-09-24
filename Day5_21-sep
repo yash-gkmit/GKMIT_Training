@@ -1,0 +1,24 @@
+Session summary:  
+Postman 
+Explanation on how postman works and its use cases.
+
+How to define environment variable in postman the basic syntax of it is {{BASE_URL}}
+Api testing in postman
+
+Difference between 401 and 403 (complete explanation with examples (license)) 
+Discussion on Authentication and Authorization
+
+pre-script, post-script
+Assessment of the previous tasks.
+
+
+Task to be Done :  
+1. Create environment variables through Global and Through Collections.
+2. Share a Postman Collection.
+3. Read Methods to share a collection.
+4. Difference between Authentication and Authorization.
+5. Differences and use cases of form data, binary, body, x-www-form-urlencoded.
+6. Folder structure and write the end-point of country->state->city.
+7.Create post-script in which name will be stored in .env, in postman
+8.Get basic understanding of…  JWT,OAuth 1.0,OAuth 2.0,Bearer Token
+
