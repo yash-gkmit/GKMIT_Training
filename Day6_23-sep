@@ -1,0 +1,10 @@
+1. Explored Postman
+2. Created user and post endpoints in postman.
+3. Learned about global and collections scope variables in postman.
+4. Learned about sharing collection in different ways.
+5. Created end points for countries, states, cities following folder structure.
+6. Learned about 401 and 403 (authorized vs forbidden) differnece and when to use each.
+7. Learned about authentication vs authorization.
+8. Status codes viva taken by Paras.
+9. Learned about different data types in postman - form-data, x-www-form-urlencoded, raw, binary etc.
+10. Used Post-script of postman to set a collections variable using the data returned as a response.
