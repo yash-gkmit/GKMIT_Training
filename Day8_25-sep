@@ -1,0 +1,34 @@
+Summary:
+
+-Docker setup
+-Postgres setup
+-Postbird installation.
+-Mongo, Redis setup.
+-SQL BASICS:
+-DDL, DML
+-SQL queries-Select, Update, Delete, Insert, Joins
+-Table and Column naming convention in SQL.
+-Restored database dump.
+-Executing SQL queries.
+-Formatting queries.
+-Execution Flow in SQL query.
+
+TODO:
+
+-When to use HAVING..
+-Restore DUMP database shared by Paras.
+-DDL, DML.
+-learn DISTINCT and GROUP BY.
+-Min, max and other aggregate functions.
+-Explore pg_restore command
+-Perform aggregation function on “Track” table: 1.Perform max on milliseconds 2.Perform min on bytes 3.Perform sum on unit price
+-Calculate kilobyte / second using bytes and milliseconds from the “Track” table.
+-Calculate the count of people by their ‘city’ and sort them alphabetically from the “Employee” table.
+-Count the number of invoices in the range of Jan to March of 2009 using the invoice date and also calculate the sum of the total of invoices in that range.
+-Explore: 1.draw.io 2.SOLID principles 3.Normalization in db 4.Atomicity.
+-Create a new branch in your daily repo then add all queries in a .sql file then create a PR to main and add Paras as reviewer.
+
+
+
+
+
