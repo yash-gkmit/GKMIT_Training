@@ -1,0 +1,28 @@
+Summary:
+
+-Queries using inner join
+-Doubt resolution related to given task 
+-How to write sub-queries: Syntax of subquery
+-Subqueries can be written in different parts of the query
+-Select
+-Where
+-Join
+-Where vs having.
+-Discussion on the topics given as task i.e 
+-Transactions
+-Views
+-Materialized views
+
+To do:
+
+-Read about the following topics and prepare to present
+-Transactions
+-Views
+-Materialized views
+-case
+-Array, JSON and JSONB
+-Practice queries from sql-practice
+-Prepare for the remaining topics
+
+
+
