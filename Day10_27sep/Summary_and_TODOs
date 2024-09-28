@@ -1,0 +1,34 @@
+Summary:
+
+Morning:
+-Indexing 
+    Regular Indexing
+    Composite Indexing
+-Uuid
+-Extensions
+-Constrains
+    Required
+    Unique
+    enum
+    Default
+    Foreign key
+-Soft Delete or Archive
+-Variable Convention in Postgres
+    :userId this will prompt for input while running a query
+
+Evening: 
+-Queries solved and discussion on the previously given task.
+-Mongo setup.
+
+TODO:
+
+1. Learn Cascade
+2. Array inbuilt function postgres
+3. Create a collection in postman for following 
+	Track
+    Playlist
+    Album
+    Artist
+    MediaType
+    Genre
+    and Create endpoints, request, response and queries for CRUD operations 
