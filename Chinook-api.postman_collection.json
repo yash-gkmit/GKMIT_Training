@@ -1,0 +1,1640 @@
+{
+	"info": {
+		"_postman_id": "32fef9c0-793d-457d-92ee-47e6ed791a50",
+		"name": "Chinook-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38476530"
+	},
+	"item": [
+		{
+			"name": "Playlist",
+			"item": [
+				{
+					"name": "Get all palylist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"response: [",
+									"    {",
+									"    \"playlistId\":1,\t",
+									"    \"Name\": \"Music\"",
+									"    },",
+									"    {},",
+									"    {}",
+									"]",
+									"",
+									"",
+									"`Select ",
+									" *",
+									"from ",
+									" Playlist",
+									"`"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/playlists",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"playlists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get single playlist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"response: [",
+									"    {",
+									"    \"playlistId\":1,\t",
+									"    \"Name\": \"Music\"",
+									"    }",
+									"]",
+									"",
+									"",
+									"`Select ",
+									" *",
+									"from ",
+									" Playlist",
+									"Where",
+									" playlistId=1; ",
+									"`"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\n ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/playlists/:playlistId",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"playlists",
+								":playlistId"
+							],
+							"variable": [
+								{
+									"key": "playlistId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a playlist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"Response: \"Created successfully\"",
+									"",
+									"",
+									"`INSERT INTO Playlist (playlistId, Name)",
+									"VALUES (1,'randomname');`"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"playlistId\": 1,\n    \"Name\": \"{{$randomFullName}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/playlists",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"playlists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update playlist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"response: \"updated successfully\"",
+									"",
+									"`Update",
+									" Playlist",
+									"SET ",
+									" Name = \"Movies\", ",
+									"where ",
+									" playlistId=1;` "
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "PlaylistId",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "Name",
+									"value": "movie",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/playlists/:playlistId?PlaylistId=1&Name=Movies",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"playlists",
+								":playlistId"
+							],
+							"query": [
+								{
+									"key": "PlaylistId",
+									"value": "1"
+								},
+								{
+									"key": "Name",
+									"value": "Movies"
+								}
+							],
+							"variable": [
+								{
+									"key": "playlistId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete playlist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"response: \"Deleted Successfully\"",
+									"",
+									"",
+									"`Update ",
+									" Playlist",
+									"SET",
+									" deleted_at = true",
+									"where",
+									" playlistId=1;`"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/playlists/:playlistId",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"playlists",
+								":playlistId"
+							],
+							"variable": [
+								{
+									"key": "playlistId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Artist",
+			"item": [
+				{
+					"name": "Album",
+					"item": [
+						{
+							"name": "Get all albums",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"response: [",
+											"    {",
+											"    \"AlbumId\"\t: 1,",
+											"    \"Title\": \"For Those About To Rock We Salute You\",",
+											"    \"ArtistId\": 1\t",
+											"    },",
+											"    {},",
+											"    {}",
+											"]",
+											"",
+											"`Select ",
+											" * ",
+											"from ",
+											" Album al;",
+											"INNER JOIN ",
+											" Artist ar ",
+											"ON ",
+											" al.albumId = ar.artistId;`"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/artists/:artistId/albums",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"artists",
+										":artistId",
+										"albums"
+									],
+									"variable": [
+										{
+											"key": "artistId",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get single album",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"response:[",
+											"    {",
+											"    \"AlbumId\": 1,",
+											"    \"Title\": \"For Those About To Rock We Salute You\",",
+											"    \"ArtistId\": 1\t",
+											"    }",
+											"]",
+											"`Select",
+											" *",
+											"from",
+											" Albumn al",
+											"INNER JOIN",
+											" Artist ar ",
+											"ON ",
+											" al.albumId = ar.artistId",
+											"where",
+											" al.albumId=1;`"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/artists/:artistId/albums/:albumId",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"artists",
+										":artistId",
+										"albums",
+										":albumId"
+									],
+									"variable": [
+										{
+											"key": "artistId",
+											"value": ""
+										},
+										{
+											"key": "albumId",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create album",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"Response: \"Created successfully\"",
+											"",
+											"`INSERT INTO ",
+											" Album ",
+											"  (albumId, title, artistId)",
+											"VALUES ",
+											" (2,'randomtitle',2);`"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"albumId\": 1,\n    \"title\": \"{{$randomTitle}}\",\n    \"artistId\": 1\t\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/artists/:artistId/albums",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"artists",
+										":artistId",
+										"albums"
+									],
+									"variable": [
+										{
+											"key": "artistId",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update album",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"response: \"updated successfully\"",
+											"",
+											"`Update",
+											" Album al",
+											"Inner join",
+											" Artist ar ON",
+											"al.albumId = ar.artistId",
+											"SET ",
+											" al.title = \"Glory\", ",
+											"where ",
+											" al.albumId=1;` "
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/artists/:artistId/albums/:albumId?title=Glory",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"artists",
+										":artistId",
+										"albums",
+										":albumId"
+									],
+									"query": [
+										{
+											"key": "title",
+											"value": "Glory"
+										}
+									],
+									"variable": [
+										{
+											"key": "artistId",
+											"value": ""
+										},
+										{
+											"key": "albumId",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete album",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"response: \"Deleted Successfully\"",
+											"",
+											"`Update",
+											" Album al",
+											"Inner join Artist ar on ",
+											" al.albumId = ar.artistId",
+											"SET ",
+											" deleted_at = true",
+											"where",
+											" al.albumId = 1; ",
+											"`"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/artists/:artistId/albums/:albumid",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"artists",
+										":artistId",
+										"albums",
+										":albumid"
+									],
+									"variable": [
+										{
+											"key": "artistId",
+											"value": ""
+										},
+										{
+											"key": "albumid",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get all artists",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"response: [",
+									"    {",
+									"        \"artistId\": 1,",
+									"        \"name\": \"randomname\"",
+									"    },",
+									"    {},",
+									"    {}",
+									"]",
+									"",
+									"`Select",
+									" *",
+									"from ",
+									" Artist;`"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/artists",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"artists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get single artist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"response: [",
+									"    {",
+									"        \"artistId\": 1,",
+									"        \"name\": \"randomname\"",
+									"    }",
+									"]",
+									"",
+									"`Select",
+									" *",
+									"from ",
+									" Artist",
+									"where",
+									" artistId=1;`"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"artistId\": 1,\n    \"name\": \"randomname\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/artists/:artistId",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"artists",
+								":artistId"
+							],
+							"variable": [
+								{
+									"key": "artistId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create artist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"Response: \"Created successfully\"",
+									"",
+									"`INSERT INTO Artist (artistId, name)",
+									"VALUES (2,'randomname');`"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"artistId\": 2,\n    \"name\": \"{{$randomname}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/artists",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"artists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update artist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"response: \"updated successfully\"",
+									"",
+									"`Update",
+									" Artist",
+									"SET ",
+									" name = \"sukesh\", ",
+									"where ",
+									" artistId=1;` "
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/artists/:artistId?artistId=2&name=sukesh",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"artists",
+								":artistId"
+							],
+							"query": [
+								{
+									"key": "artistId",
+									"value": "2"
+								},
+								{
+									"key": "name",
+									"value": "sukesh"
+								}
+							],
+							"variable": [
+								{
+									"key": "artistId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete artist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"response: \"Deleted Successfully\"",
+									"",
+									"`Update ",
+									" Artist",
+									"SET",
+									" deleted_at = true",
+									"where",
+									" artistId=1;`"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/artists/:artistId",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"artists",
+								":artistId"
+							],
+							"variable": [
+								{
+									"key": "artistId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Genre",
+			"item": [
+				{
+					"name": "Get all genres",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"response: [",
+									"    {",
+									"        \"genreId\" : 1,",
+									"        \"name\": \"old\"",
+									"    },{",
+									"",
+									"    },{",
+									"",
+									"    }",
+									"]",
+									"",
+									"`Select ",
+									" *",
+									"from ",
+									" Genre`"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"genreId\": 1,\n   \"name\" : \"{{$randomLastName}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/genres",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"genres"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get single genre",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"response: [",
+									"    {",
+									"        \"genreId\" : 1,",
+									"        \"name\": \"old\"",
+									"    }",
+									"]",
+									"",
+									"`Select ",
+									" *",
+									"from ",
+									" Genre",
+									"where ",
+									" genreId = 1;`"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/genres/:genreId",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"genres",
+								":genreId"
+							],
+							"variable": [
+								{
+									"key": "genreId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create genre",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"response: \"Created Successfully\"",
+									"",
+									"`INSERT INTO Genre (genreId, name)",
+									"VALUES (1,'randomname');`"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"genreId\" : 1,\n    \"name\": \"{{$randomFullName}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/genres",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"genres"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update genre",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"resposne: \"Updated Successfully\"",
+									"",
+									"`Update",
+									" Genre ",
+									"SET ",
+									" name = old",
+									"where",
+									" genreId=1;`"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/genres/:genreId?name=old",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"genres",
+								":genreId"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "old"
+								}
+							],
+							"variable": [
+								{
+									"key": "genreId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete genre",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"response: \"Deleted Successfully\"",
+									"",
+									"`Update ",
+									" Genre ",
+									"SET",
+									" deleted_at = true",
+									"where ",
+									" genreId=1;`"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/genres/:genreId",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"genres",
+								":genreId"
+							],
+							"variable": [
+								{
+									"key": "genreId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MediaType",
+			"item": [
+				{
+					"name": "Get all mediatypes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"response: [",
+									"    {",
+									"        \"mediaTypeId\" : 1,",
+									"        \"name\": \"randonname\"",
+									"    },{",
+									"",
+									"    },{",
+									"",
+									"    }",
+									"]",
+									"",
+									"`Select ",
+									" *",
+									"from ",
+									" MediaType;`"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/mediatypes",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"mediatypes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get single mediatype",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"response: [",
+									"    {",
+									"        \"mediaTypeId\" : 1,",
+									"        \"name\": \"randomname\"",
+									"    }",
+									"]",
+									"",
+									"`Select ",
+									" *",
+									"from ",
+									" MediaType",
+									"where ",
+									" mediaTypeId = 1;`"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/mediatypes/:mediatypeId",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"mediatypes",
+								":mediatypeId"
+							],
+							"variable": [
+								{
+									"key": "mediatypeId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create mediatype",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"response: \"Created Successfully\"",
+									"",
+									"`INSERT INTO ",
+									" MediaType ",
+									"  (mediaTypeId, name)",
+									"VALUES ",
+									" (1,'randomname');`"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/mediatypes",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"mediatypes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update mediatype",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"resposne: \"Updated Successfully\"",
+									"",
+									"`Update",
+									" MediaType ",
+									"SET ",
+									" name = randomname",
+									"where",
+									" mediaTypeId=1;`"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/mediatypes/:mediatypesId?name=randomname",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"mediatypes",
+								":mediatypesId"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "randomname"
+								}
+							],
+							"variable": [
+								{
+									"key": "mediatypesId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete mediatype",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"response: \"Deleted Successfully\"",
+									"",
+									"`Update ",
+									" MediaType ",
+									"SET",
+									" deleted_at = true",
+									"where ",
+									" mediaTypeId=1;`"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/mediatypes/:mediatypeId",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"mediatypes",
+								":mediatypeId"
+							],
+							"variable": [
+								{
+									"key": "mediatypeId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Track",
+			"item": [
+				{
+					"name": "Get all tracks",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"response: [",
+									"        {",
+									"            \"trackId\": 1,",
+									"            \"name\": \"randomname \",",
+									"            \"MediaType\": \"music\",",
+									"            \"Composer\": \"abc\",",
+									"            \"Milliseconds\": \"32423423\",",
+									"            \"Bytes\": \"3425432\",",
+									"            \"UnitPrice\": \"234\",",
+									"            \"GenreId\": \"\",",
+									"            \"AlbumId\": \"\"",
+									"        },{},{}",
+									"]  ",
+									"",
+									"`Select ",
+									" * ",
+									"from ",
+									" Track;`",
+									"\t "
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/tracks",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"tracks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get single track",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"response: [",
+									"        {",
+									"            \"trackId\": 1,",
+									"            \"Name\": \"random name \",",
+									"            \"MediaType\": \"music\",",
+									"            \"Composer\": \"abc\",",
+									"            \"Milliseconds\": \"32423423\",",
+									"            \"Bytes\": \"3425432\",",
+									"            \"UnitPrice\": \"234\",",
+									"            \"GenreId\": \"\",",
+									"            \"AlbumId\": \"\"",
+									"        }",
+									"]  ",
+									"",
+									"`Select ",
+									" * ",
+									"from ",
+									" Track",
+									"Where",
+									" trackId=1 ;`"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/tracks/:trackId",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"tracks",
+								":trackId"
+							],
+							"variable": [
+								{
+									"key": "trackId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create track",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"response: \"Created Successfully\"",
+									"",
+									"`INSERT INTO ",
+									" Track (name, MediaType, Composer, Milliseconds, Bytes, UnitPrice)",
+									"VALUES ",
+									" ('random name', 'music', 'abc', 32423423, 3425432, 234);`"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"trackld\": 1,\n    \"name\": \"{{$randomFullName}}\",\n    \"Albumld\": 1,\n    \"Media Type...\": 1,\n    \"Genreld\":1,\n    \"Composer\": \"F. Baltes, S. Kaufmal & U. Dirkscneide\",\n    \"Milliseconds\": 230619,\n    \"Bytes\": 3990994,\n    \"UnitPrice\":0.99\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/tracks",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"tracks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update track",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"response: \"Updated Successfully\"",
+									"",
+									"`Update",
+									" Track",
+									"SET ",
+									" name = \"Fast As a Shark\", ",
+									" Milliseconds = 230619",
+									"Where",
+									" trackId=1;` "
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/tracks/:trackId?Name=Fast As a Shark&Milliseconds=230619",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"tracks",
+								":trackId"
+							],
+							"query": [
+								{
+									"key": "Trackld ",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "Name",
+									"value": "Fast As a Shark"
+								},
+								{
+									"key": "Albumld",
+									"value": "3",
+									"disabled": true
+								},
+								{
+									"key": "Media Type...",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "Genreld",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "Composer",
+									"value": "F. Baltes, S. Kaufman, U. Dirkscneider %26 W. Hoffman",
+									"disabled": true
+								},
+								{
+									"key": "Milliseconds",
+									"value": "230619"
+								},
+								{
+									"key": "Bytes",
+									"value": "3990994",
+									"disabled": true
+								},
+								{
+									"key": "UnitPrice",
+									"value": "0.99",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "trackId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Track",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"response: \"Updated Successfully\"",
+									"",
+									"`Update",
+									" Track",
+									"SET ",
+									" deleted_at = true",
+									"Where",
+									" trackId=1;` "
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/artists/:artistId/tracks/:trackId",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"artists",
+								":artistId",
+								"tracks",
+								":trackId"
+							],
+							"variable": [
+								{
+									"key": "artistId",
+									"value": ""
+								},
+								{
+									"key": "trackId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "http://localhost:8090\n",
+			"type": "string"
+		}
+	]
+}
