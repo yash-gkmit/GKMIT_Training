@@ -1,0 +1,83 @@
+//task 1 - Create User’s score and leaderboard in redis
+
+ZADD nodejs_avg_weekly:score 6.94 Aditya 6.92 Akshay 6.71 Lakshay 6.67 Harshit 6.63 Yogita 6.46 Yash 6.46 Aakriti 6.29 Jyoti
+(integer) 8
+
+ZRANGEBYSCORE nodejs_avg_weekly:score 0 10
+1) "Jyoti"
+2) "Aakriti"
+3) "Yash"
+4) "Yogita"
+5) "Harshit"
+6) "Lakshay"
+7) "Akshay"
+8) "Aditya"
+
+ZRANGE nodejs_avg_weekly:score 0 -1
+1) "Jyoti"
+2) "Aakriti"
+3) "Yash"
+4) "Yogita"
+5) "Harshit"
+6) "Lakshay"
+7) "Akshay"
+8) "Aditya"
+
+ZRANGE nodejs_avg_weekly:score 0 1
+1) "Jyoti"
+2) "Aakriti"
+
+ZRANGE nodejs_avg_weekly:score 0 -1 WITHSCORES
+ 1) "Jyoti"
+ 2) "6.29"
+ 3) "Aakriti"
+ 4) "6.46"
+ 5) "Yash"
+ 6) "6.46"
+ 7) "Yogita"
+ 8) "6.63"
+ 9) "Harshit"
+10) "6.67"
+11) "Lakshay"
+12) "6.71"
+13) "Akshay"
+14) "6.92"
+15) "Aditya"
+16) "6.94"
+
+ZRANGEBYSCORE nodejs_avg_weekly:score 0 10
+1) "Jyoti"
+2) "Aakriti"
+3) "Yash"
+4) "Yogita"
+5) "Harshit"
+6) "Lakshay"
+7) "Akshay"
+8) "Aditya"
+
+ZSCORE nodejs_avg_weekly:score Yash
+"6.46"
+
+ZCOUNT nodejs_avg_weekly:score 6 7
+(integer) 8
+
+ZRANK nodejs_avg_weekly:score Yash
+(integer) 2
+
+ZINCRBY nodejs_avg_weekly:score 2 Yash
+"8.46"
+
+//task 2 - Create an array of geo locations and find the shortest path near your location
+
+GEOADD cities:location -74.0059413 40.7127837 "New York" -118.2436849 34.0522342 "Los Angeles" -87.6297982 41.8781136 "Chicago"
+-- for adding location of cities
+
+GEOPOS cities:location Chicago
+-- for getting desired array
+
+GEODIST cities:location "New York" "Chicago" km
+-- for finding distance
+
+GEOSEARCH cities:location FROMLONLAT -71.382439 42.407211 BYRADIUS 20 km WITHDIST
+--for finding the location nearby
+
